@@ -1,0 +1,7 @@
+<% @groups.each do |group| %>
+  <tr>
+    <td><%= group.name %></td>
+    <td><%= link_to "Edit", edit_group_path(group), remote: true, class: "btn" %></td>
+    <td><%= link_to "Delete", group_delete_path(group), remote: true, class: "btn btn-danger" %></td>
+  </tr>
+<% end %>
