@@ -3,5 +3,6 @@
     <td><%= group.name %></td>
     <td><%= link_to "Edit", edit_group_path(group), remote: true, class: "btn" %></td>
     <td><%= link_to "Delete", group_delete_path(group), remote: true, class: "btn btn-danger" %></td>
+    <td><%= link_to 'View Members', group_path(group), class: 'btn' %></td>
   </tr>
 <% end %>

@@ -1,0 +1,53 @@
+<%= form_for @user, { class: "form-horizontal" } do |f| %>
+<fieldset>
+
+  <% if @user.errors.any? %>
+    <ul>
+    <% @user.errors.each do |error| %>
+      <li class="errors"> <%= error %></li>
+    <% end %>
+    </ul>
+  <% end %>
+
+  <legend>Add Member</legend>
+
+   <div class='control-group'>
+    <%= f.label 'Select Group', class: "control-label" %>
+    <div class="controls">
+      <%= f.select 'group_id', options_for_select(Group.all.collect{ |g| [g.name, g.id] }) %>
+    </div>
+  </div>
+
+  <div class='control-group'>
+    <%= f.label 'Select Existing Users', class: "control-label" %>
+    <div class="controls">
+      <%= f.select 'users', options_for_select(User.all.map {|s| [s.name, s.id]}), {}, {:multiple => true, size: 5} %>
+    </div>
+  </div>
+
+  <div class='control-group'>
+    <%= f.label :name, class: "control-label" %>
+    <div class="controls">
+    	<%= f.text_field :name %>
+    </div>
+  </div>
+ 
+   <div class='control-group'>
+    <%= f.label :email, class: "control-label" %>
+    <div class="controls">
+    	<%= f.email_field :email, class: 'controls' %>
+    </div>
+  </div>
+
+  <div class='control-group'>
+    <%= f.label :gender, class: 'control-label' %>
+    <div class="controls">
+    	<%= f.select :gender, options_for_select(['Male', 'Female']), class: 'controls' %>
+  	</div>
+  </div>
+ 
+  <div>
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+  </fieldset>
+<% end %>
