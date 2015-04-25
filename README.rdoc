@@ -1,5 +1,7 @@
 Ruby version:
 
-ruby 1.9.3p547 (2014-05-14 revision 45962) [i686-linux]
-
 rvm install ruby-1.9.3-p547
+
+rake db:create
+rake db:migrate
+
